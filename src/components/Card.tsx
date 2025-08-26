@@ -1,13 +1,17 @@
 import Image from "next/image";
 import styles from "./card.module.css";
 
-export default function Card(){
+interface CardProps {
+    venueName: string;
+    imgSrc: string;
+}
+
+export default function Card({venueName,imgSrc}: CardProps) {
     return (
         <div className={styles.card}>
-            <Image src={"/images/Party.png"} className={styles.cardImage} alt="Party Image" width={200} height={200}/>
+            <Image src={imgSrc} className={styles.cardImage} alt="Party Image" width={200} height={200}/>
             <div className={styles.cardText}>
-                <h3>Card Title</h3>
-                <p>This is a simple card component.</p>
+                <a href="/booking">{venueName}</a>
             </div>
         </div>
     );
